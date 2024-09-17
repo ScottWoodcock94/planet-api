@@ -1,0 +1,25 @@
+{
+  "name": "planet-api",
+  "version": "1.0.0",
+  "description": "Codebase for Planet API.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc --watch",
+    "start": "npm run compile & nodemon ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
