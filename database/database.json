@@ -1,0 +1,98 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "title": "Go to the dentist.",
+      "status": "In-progress",
+      "description": null,
+      "user_id": 1,
+      "created_at": "2024-09-20 12:52:49",
+      "updated_at": null
+    },
+    {
+      "id": 2,
+      "title": "Arrange a party.",
+      "status": "Not Started",
+      "description": null,
+      "user_id": 1,
+      "created_at": "2024-09-20 12:53:11",
+      "updated_at": null
+    },
+    {
+      "id": 3,
+      "title": "Go swimming.",
+      "status": "Not Started",
+      "description": null,
+      "user_id": 1,
+      "created_at": "2024-09-20 12:57:58",
+      "updated_at": null
+    },
+    {
+      "id": 4,
+      "title": "Drill a hole in the hotel wall.",
+      "status": "Completed",
+      "description": null,
+      "user_id": 1,
+      "created_at": "2024-09-20 12:59:02",
+      "updated_at": null
+    },
+    {
+      "id": 5,
+      "title": "Go to the dentist.",
+      "status": "In-progress",
+      "description": null,
+      "user_id": 2,
+      "created_at": "2024-09-20 13:04:09",
+      "updated_at": null
+    },
+    {
+      "id": 6,
+      "title": "Arrange a party.",
+      "status": "Not Started",
+      "description": null,
+      "user_id": 2,
+      "created_at": "2024-09-20 13:05:46",
+      "updated_at": null
+    },
+    {
+      "id": 7,
+      "title": "Go swimming.",
+      "status": "Not Started",
+      "description": null,
+      "user_id": 2,
+      "created_at": "2024-09-20 13:06:51",
+      "updated_at": null
+    },
+    {
+      "id": 8,
+      "title": "Drill a hole in the hotel wall.",
+      "status": "Completed",
+      "description": null,
+      "user_id": 2,
+      "created_at": "2024-09-20 12:07:14",
+      "updated_at": null
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "email": "mr_bean@email.com",
+      "email_verified_at": null,
+      "password": "twiglets",
+      "remember_token": null,
+      "username": "teddy",
+      "created_at": "2024-09-20 12:52:30",
+      "updated_at": null
+    },
+    {
+      "id": 2,
+      "email": "tom_cruise@email.com",
+      "email_verified_at": null,
+      "password": "missionimpossible",
+      "remember_token": null,
+      "username": "ethan_hunt",
+      "created_at": "2024-09-20 12:55:42",
+      "updated_at": null
+    }
+  ]
+}
