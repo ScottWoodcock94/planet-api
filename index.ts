@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { ErrorRequestHandler } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -7,7 +7,7 @@ import routes from './routes/routes.js';
 import path from 'path';
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = parseInt(process.env.PORT) || 4000;
 
 export const rootDir = path.dirname(import.meta.dirname);
 
@@ -20,9 +20,12 @@ const styles =
 //   );
 // });
 
-app.use(cors());
+// const errorHandler: ErrorRequestHandler = (err, req, res, next) => {};
+
+// app.use(errorHandler);
+app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.json());
-app.use("/", routes);
+app.use('/', routes);
 
 // app.get('/', (req, res, next) => {
 //   res.send(

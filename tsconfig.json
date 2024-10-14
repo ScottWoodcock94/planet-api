@@ -8,11 +8,14 @@
             "es2020"
         ],
         "target": "es2020",
-        "module": "esnext",
-        "moduleResolution": "node",
+        // "module": "esnext",
+        "module": "NodeNext",
+        // "moduleResolution": "node",
+        "moduleResolution": "NodeNext",
         "esModuleInterop": true,
         "types": [
-            "node"
+            "node",
+            "vitest/globals"
         ]
     }
 }

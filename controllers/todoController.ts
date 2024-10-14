@@ -1,11 +1,21 @@
 import { readFile, writeFile } from 'fs';
-import { Todo } from '../models/todo';
+// import { Todo } from '../models/todo';
+import { Todo } from '../models/todo.js';
 import { Request, Response, NextFunction } from 'express';
 
-export const getTodos = (req: Request, res: Response, next: NextFunction) => {
+let database = readFile(`./database/database.json`, 'utf-8', (err, data) => {});
+
+export const getTodos = async (
+  // err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   readFile(`./database/database.json`, 'utf-8', (err, data) => {
-    if (err) console.error(err);
-    else {
+    if (err) {
+      console.error(err);
+      throw new Error('Failed to read data from database file.');
+    } else {
       const todos: Todo[] = JSON.parse(data).todo;
 
       if (req.params.id) {
@@ -22,10 +32,21 @@ export const getTodos = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export const createTodo = (req: Request, res: Response, next: NextFunction) => {
+export const createTodo = async (
+  // err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+  // err,
+  // req,
+  // res,
+  // next
+) => {
   readFile(`./database/database.json`, 'utf-8', (err, data) => {
-    if (err) console.error(err);
-    else {
+    if (err) {
+      console.error(err);
+      throw new Error('Failed to read data from database file.');
+    } else {
       console.log('Data:\n\n', data);
 
       const database: { todo: []; user: [] } = JSON.parse(data); // Which type??? Array of Objects?
@@ -38,10 +59,22 @@ export const createTodo = (req: Request, res: Response, next: NextFunction) => {
       console.log('Database:\n\n', database);
 
       writeFile(
-        `./database/database.json`,
+        './database/database.json',
         JSON.stringify(database),
         'utf-8',
-        (err) => err && console.error(err)
+        (err) => {
+          // err && console.error(err)
+          if (err) {
+            console.error(err);
+            throw new Error('Failed to write data to database file.');
+          } else
+            readFile('./database/database.json', 'utf-8', (err, data) => {
+              if (err) {
+                console.error(err);
+                throw new Error('Failed to read data from database file.');
+              } else return data;
+            });
+        }
       );
 
       res.status(201).send(todos.find((todo) => todo.id === newTodo.id));
@@ -49,10 +82,17 @@ export const createTodo = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
+export const updateTodo = async (
+  // err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   readFile(`./database/database.json`, 'utf-8', (err, data) => {
-    if (err) console.error(err);
-    else {
+    if (err) {
+      console.error(err);
+      throw new Error('Failed to read data from database file.');
+    } else {
       console.log('Data:\n\n', data);
 
       let database: { todo: []; user: [] } = JSON.parse(data);
@@ -87,10 +127,17 @@ export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export const deleteTodo = (req, res, next) => {
+export const deleteTodo = async (
+  // err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   readFile(`./database/database.json`, 'utf-8', (err, data) => {
-    if (err) console.error(err);
-    else {
+    if (err) {
+      console.error(err);
+      throw new Error('Failed to read data from database file.');
+    } else {
       console.log('Data:\n\n', data);
 
       let database: { todo: []; user: [] } = JSON.parse(data);

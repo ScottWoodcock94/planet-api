@@ -4,6 +4,6 @@ export interface Todo {
     description: string | null;
     status: string;
     userId: number;
-    createdAt: Date;
-    updatedAt: Date | null;
+    createdAt: string;
+    updatedAt: string | null;
 }   
